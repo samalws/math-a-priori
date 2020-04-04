@@ -1,7 +1,9 @@
-compOne = \h i j. \f: (i->j). \g: (h->i). \a: h. f (g a)
-compTwo = \x y z. \f: (y->z). \g: (x->y). \a: x. f (g a)
--- COMPONE AND COMPTWO SHOULD BE IDENTICAL
-a = \w x y z. \f: (x->z)->(y->z). \g: (w->z)->(x->z). compOne (w->z) (x->z) (y->z) f g
-b = \w x y z. \f: (x->z)->(y->z). \g: (w->z)->(x->z). compTwo (w->z) (x->z) (y->z) f g
--- A AND B ALSO SHOULD BE IDENTICAL
--- BUT A WORKS AND B DOESNT
+-- to replicate: go to https://crypto.stanford.edu/~blynn/lambda/pts.html, select lambda cube, and then select at least (□,∗)
+
+functionA = \i j. \a: (i->j). a
+functionB = \w x. \a: (w->x). a
+-- functionA and functionB should be identical
+functionC = \x. \b: (x->x)->(x->x). functionA (x->x) (x->x) b
+functionD = \x. \b: (x->x)->(x->x). functionB (x->x) (x->x) b
+-- functionC and functionD should also be identical
+-- but functionC works and functionD doesn't
