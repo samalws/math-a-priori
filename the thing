@@ -1,0 +1,12 @@
+id = \x. \y: x. y
+arrow = \x y. pi a: x. y -- syntactic sugar arrows are not real and should be trusted
+eq = \x y. pi z. arrow (arrow x z) (arrow y z)
+
+eqRefl = id (pi x. eq x x) (\x z. id (arrow x z))
+arrowEquivToSyntaxArrow = id (pi x y. eq (arrow x y) (x->y)) (\x y. eqRefl (arrow x y)) -- ok we can trust them now
+
+comp = \x y z. \f: (y->z). \g: (x->y). \a: x. f (g a)
+
+nat = pi x. (x->x)->(x->x)
+zeroNat = id nat (\x. \y: (x->x). \z: x. z)
+succNat = id (nat->nat) (\n: nat. \x. \y: (x->x). \z: x. y (n x y z))
