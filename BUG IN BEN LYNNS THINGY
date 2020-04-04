@@ -1,0 +1,7 @@
+compOne = \h i j. \f: (i->j). \g: (h->i). \a: h. f (g a)
+compTwo = \x y z. \f: (y->z). \g: (x->y). \a: x. f (g a)
+-- COMPONE AND COMPTWO SHOULD BE IDENTICAL
+a = \w x y z. \f: (x->z)->(y->z). \g: (w->z)->(x->z). compOne (w->z) (x->z) (y->z) f g
+b = \w x y z. \f: (x->z)->(y->z). \g: (w->z)->(x->z). compTwo (w->z) (x->z) (y->z) f g
+-- A AND B ALSO SHOULD BE IDENTICAL
+-- BUT A WORKS AND B DOESNT
