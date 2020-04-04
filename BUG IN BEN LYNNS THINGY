@@ -1,4 +1,4 @@
--- to replicate: go to https://crypto.stanford.edu/~blynn/lambda/pts.html, select lambda cube, and then select at least (□,∗)
+-- to replicate: go to https://crypto.stanford.edu/~blynn/lambda/pts.html, select λ-cube, and then select at least (□,∗)
 
 functionA = \i j. \a: (i->j). a
 functionB = \w x. \a: (w->x). a
