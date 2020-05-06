@@ -1,9 +1,0 @@
--- to replicate: go to https://crypto.stanford.edu/~blynn/lambda/pts.html, select λ-cube, and then select at least (□,∗)
-
-functionA = \i j. \a: (i->j). a
-functionB = \w x. \a: (w->x). a
--- functionA and functionB should be identical
-functionC = \x. \b: (x->x)->(x->x). functionA (x->x) (x->x) b
-functionD = \x. \b: (x->x)->(x->x). functionB (x->x) (x->x) b
--- functionC and functionD should also be identical
--- but functionC works and functionD doesn't
